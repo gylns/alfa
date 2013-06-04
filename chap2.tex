@@ -1,0 +1,246 @@
+\chapter{Topological vector space}
+\def\O{\mathcal{O}}
+\def\V{\mathcal{V}}
+\def\N{\mathcal{N}}
+\def\T{\mathcal{T}}
+\def\F{\mathcal{F}}
+ \newcommand{\eqdef}{%
+\ensuremath{\mathrel{\stackrel{\mathrm{def}}{=}}}}
+\input{sec2.1}
+\section{Vector space topologies}
+A vector space $V$ which is also a topological space is call a
+\emph{topological vector space} if the vector operations
+\begin{equation}
+  \label{eq:2.2.1}
+  V\times V\ni (x,y)\mapsto x+y\in V; \quad K\times V\ni (a,x)\mapsto
+  ax\in V
+\end{equation}
+are continuous. Here and in what follows $K$ denotes the field
+$\mathbf{R}$ of real numbers or the field $\mathbf{C}$ of complex
+numbers with the usual metric topologies. In particular,
+\eqref{eq:2.2.1} implies that for fixed $y$ and fixed $a\in K, a\neq
+0$, the maps
+\begin{displaymath}
+  x\mapsto x+y \quad (\text{translation})\qquad\text{and } x\mapsto ax \quad(\text{dilation})
+\end{displaymath}
+are homeomorphisms. Thus the open sets are invariant under
+translations, so the topology is completely determined by the
+neighborhoods of $0$. Since
+\begin{displaymath}
+  x+x_0+y+y_0=x+y+x_0+y_0,\qquad(a+a_0)(x+x_0)=ax+ax_0+a_0x+a_0x_0,
+\end{displaymath}
+the continuity of the operations \eqref{eq:2.2.1} reduces to the
+following conditions on the neighborhoods of $0$:
+\begin{equation*}
+  \label{eq:2.2.1m}
+  \begin{aligned}
+    (x,y) &\mapsto x+y & {\ }&\text{is continuous at }(0,0);\\
+    (a,x) &\mapsto ax  & {\ }&\text{is continuous at }(0,0);\\
+    a &\mapsto ax_0 & {\ }&\text{is continuous at }0\text{ for every }x_0;\\
+    x &\mapsto a_0x & {\ }&\text{is continuous at }0\text{ for every }a_0.
+  \end{aligned}\tag*{$(\ref{eq:2.2.1})'$}
+\end{equation*}
+Explicitly the first three conditions mean that for every neighborhood
+$N$ of $0$ in $V$ there shall exist a neighborhood $N_1$ of $0$ and
+$\varepsilon>0$ such that
+\begin{equation}
+  \label{eq:2.2.2}
+  \begin{gathered}
+    N_1+N_1=\left\{ x+y;\ x,y\in N_1 \right\}\subset N;\quad ax\in
+    N\text{ if }|a|\leq\varepsilon\text{ and }x\in N_1;\\
+    \text{for every }x\in V\ \exists\varepsilon_x>0\text{ such that }ax\in
+    N \quad\text{if }|a|<\varepsilon_x.
+  \end{gathered}
+\end{equation}
+The last condition in \ref{eq:2.2.1m} is a consequence of
+\eqref{eq:2.2.2}, for the second part of \eqref{eq:2.2.2} gives
+$a_0x\in N$ if $2^kx\in N_1$ for some integer $k>0$ with
+$2^{-k}|a_0|<\varepsilon$, and repeated use of the first part of
+\eqref{eq:2.2.2} shows that there is a neighborhood $N_2$ of $0$ such
+that $2^kN_2\subset N_1$, thus $a_0x\in N$ if $x\in N_2$.
+
+To use the second part of \eqref{eq:2.2.2} we form
+\begin{displaymath}
+  N_2=\bigcup_{|a|\leq\varepsilon}aN_1\subset N.
+\end{displaymath}
+This is also a neighborhood of $0$, and we have $aN_2\subset N_2$ if
+$|a|\leq1$.
+\begin{dfn}
+  A set $M$ in a vector space $V$ over $K$ is called \emph{balanced}
+  if $ax\in M$ for all $x\in M$ and $a\in K$ with $|a|\leq1$. It is
+  called \emph{absorbing} if for every $x\in V$ we have $ax\in M$ when
+  $|a|$ is sufficiently small.
+\end{dfn}
+Every neighborhood of $0$ is absorbing, and we have found that there
+is a fundamental system of balanced neighborhoods of $0$. Conversely,
+for any system of balanced absorbing sets satisfying the first
+condition in \eqref{eq:2.2.2} the finite intersections can be taken as
+a fundamental system of neighborhoods of $0$ for a vector space
+topology in $V$.
+
+So far we have not required the Hausdorff separation axiom to be
+valid. This axiom is equivalent to
+\begin{equation}
+  \label{eq:2.2.3}
+  \text{the intersection of all neighborhoods of }0\text{ is equal to }\left\{ 0 \right\}.
+\end{equation}
+In fact, \eqref{eq:2.2.3} is obviously a consequence of the Hausdorff
+axiom. On the other hand, if \eqref{eq:2.2.3} is valid we can for
+every $x\neq0$ find a balanced neighborhood $N$ of $0$ such that
+$x\notin N+N$. The neighborhoods $N$ and $\left\{ x \right\}+N$ of $0$
+and $x$ are then disjoint, for if $x+y=z;\ y,z\in N$; then $x=z+(-y)\in
+N+N$.
+
+It follows from \eqref{eq:2.2.2} that in any topological vector space
+$V$ the intersection $V_0$ of all neighborhoods of $0$ is a linear
+subspace. If $O$ is an open set in $V$ and if $x\in O, y\in V_0$, it
+follows that $x+y\in O$. The open sets in $V$ are therefore unions of
+residue classes modulo $V_0$. We obtain a vector space topology in
+$V/V_0$ if we take as open sets there the maps of the open sets in $V$
+into $V/V_0$; conversely, the open sets in $V$ are the inverse images
+of the open sets in $V/V_0$. The definition of $V_0$ and
+\eqref{eq:2.2.3} imply that $V/V_0$ satisfies the Hausdorff axiom.
+
+If $W$ is any linear subspace of a topological vector space $V$, we
+can also topologize $V/W$ by taking as open sets the images of the
+open sets in $V$. It is clear that $V/W$ is a Hausdorff space if and
+only if $0$ is closed there, that is, $W$ is a \emph{closed} linear
+subspace of $V$.
+\begin{thm}\label{thm:2.2.2}
+  If $V$ is a finite dimensional Hausdorff topological vector space
+  and if $T:K^n\to V$ is a linear bijection, then $T$ is a
+  homeomorphism if $K^n$ is given the product topology.
+\end{thm}
+Thus there is only one Haudorff vector space topology possible in the
+finite dimensional case.
+\begin{prf}
+  Since for some $x_1,\dots,x_n\in V$
+  \begin{displaymath}
+    Ta=\sum_1^na_jx_j,\quad a=\left( a_1,\dots,a_n \right)\in K^n,
+  \end{displaymath}
+  it follows from (\ref{eq:2.2.1}) that $T$ is continuous. To prove
+  that $T^{-1}$ is continuous we have to show that $T$ maps open sets
+  to open sets. This follows if we prove that $TI$ is a neighborhood
+  of $0$ when
+  \begin{displaymath}
+    I=\left\{ a\in K^n;|a_j|<1,j=1,\dots,n \right\}.
+  \end{displaymath}
+  If $\partial I$ is the boundary of $I$ then
+  \begin{displaymath}
+    I=\left\{ a\in K^n;wa\notin\partial I \text{ when }w\in K\text{
+        and }|w|\leq1 \right\}.
+  \end{displaymath}
+  Thus
+  \begin{displaymath}
+    T(I)=\left\{ x\in V;wx\notin T(\partial I)\text{ when }w\in
+      K\text{ and }|w|\leq1 \right\}.
+  \end{displaymath}
+  Since $T(\partial I)$ is a compact set which does not contain $0$
+  (Theorem \ref{thm:2.1.3}), it follows, again by Theorem
+  \ref{thm:2.1.3}, that there is a neighborhood $N$ of $0$ with $N\cap
+  T(\partial I)=\emptyset$. If we take $N$ balanced it follows that
+  $N\subset T(I)$.
+\end{prf}
+\begin{cor}\label{cor:2.2.3}
+  Let $W$ be a linear subspace of finite codimension in a topological
+  vector space $V$. Then all linear forms vanishing in $W$ are
+  continuous if and only if $W$ is closed.
+\end{cor}
+\begin{prf}
+  It follows from Theorem \ref{thm:1.4.2} that $w$ is the intersection
+  of the zero sets of linear forms vanishing on $W$, so $W$ is closed
+  if these are all continuous. On the other hand, if $W$ is closed
+  then $V/W$ is a finite dimensional Hausdorff space. A linear form
+  $f$ on $V$ vanishing on $W$ is a composition
+  \begin{displaymath}
+    V\to V/W\xrightarrow{\ \bar{f}}K
+  \end{displaymath}
+  where $\bar{f}$ is continuous by Theorem \ref{thm:2.2.2}. Hence $f$
+  is also continuous.
+\end{prf}
+Let $N$ be an open and balanced neighborhood of $0$ in the
+topological vector space $V$. Then there is a unique function $p:V\to
+\mathbf{R}_{+}$ (the non-negative reals) such that
+  \begin{equation}
+    \label{eq:2.2.4} p(ax)=|a|p(x)\quad a\in K,x\in V;\qquad N=\left\{
+x\in V;p(x)<1 \right\}.
+  \end{equation} Moreover, the function $p$ is continuous at $0$. In
+fact, if $N$ is defined by $p$ in this way and if $t>0$, then
+  \begin{displaymath} p(x)=tp(x/t)\geq t \text{ if } x/t\notin
+N;\qquad p(x)<t\text{ if }x/t\in N,
+  \end{displaymath} hence
+  \begin{equation}
+    \label{eq:2.2.5} p(x)=\inf \left\{ t;x/t\in N \right\}.
+  \end{equation} Conversely, the function defined by (\ref{eq:2.2.5})
+obviously satisfies (\ref{eq:2.2.4}) if $N$ is balanced and
+absorbing. If $p(x)<1$ we have $x/t\in N$ for some $t<1$, hence $x\in
+N$, and if $p(x)\geq1$ then $x/t\notin N$ if $t<1$. Since $N$ is open
+we may conclude that $x\notin N$. Finally $p(x)<\varepsilon$ if
+$x\in\varepsilon N$, so $p$ is continuous at $0$.
+
+If $N_1$ is another neighborhood of $0$ of the same kind, and if
+$N_1+N_1\subset N$ as in (\ref{eq:2.2.2}),we have $p(x+y)<1$ if
+$p_1(x)<1$ and $p_1(y)<1$, where $p_1$ is defined by
+(\ref{eq:2.2.5})with $N$ replaced by $N_1$. In view of the homogeneity
+it follows that
+\begin{displaymath}
+  p(x+y)\leq \max\,(p_1(x),\,p_1(y)).
+\end{displaymath}
+Conversely, if we give a family $\mathcal{P}$ of function from $V$ to
+$\mathbf{R}_+$ satisfying (\ref{eq:2.2.4}) such that for every $p\in\mathcal{P}$
+\begin{displaymath}
+  p(x+y)\leq C\max(p_1(x),p_1(y)),\quad x,y\in V,
+\end{displaymath}
+for some $p_1\in\mathcal{P}$ and some constant $C$, then the finite
+intersections of the sets
+\begin{displaymath}
+  N_{p,\epsilon}=\left\{ x;p(x)<\epsilon \right\},\qquad\epsilon>0,\quad p\in\mathcal{P},
+\end{displaymath}
+are a basis of neighborhood of $0$ for a vector space topology in
+$V$. The verification is left for the reader.
+\begin{exa}
+  Let $V$ be the space of $K$ valued continuous functions on
+  $[0,1]\subset \mathbf{R}$,and set for some $r>0$
+  \begin{displaymath}
+    \|f\|_r=\left( \int|f|^r\,dx \right)^{1/r}.
+  \end{displaymath}
+Then $\|f\|_r$ satisfies (\ref{eq:2.2.4}) and
+\begin{displaymath}
+  \|f+g\|_r\leq 2^{(r+1)/r}\max(\|f\|_r,\|g\|_r).
+\end{displaymath}
+Thus the sets $\left\{ f;\|f\|_r<\epsilon \right\}$ form a basis for
+neighborhood of $0$ in a vector space topology.
+\end{exa}
+The general spaces discssed so far are of little use in analysis so we
+shall narrow down our discussion to more special classes of spaces
+which occur frequently and have useful properties. The first condition
+we impose is the existence of a fundamental system of convex
+neighborhoods. This is required for the application of Hahn-Banach
+theorem proved in Section \ref{sec:1.4}. 
+\newcommand{\tvs}{Topological vector spaces}
+\newcommand{\lctvs}{Locally convex topological vector spaces}
+\newcommand{\sns}{Semi-normed spaces} \newcommand{\ns}{Normed spaces}
+\newcommand{\phs}{Pre-Hilbert spaces} \newcommand{\fs}{Fr\'echet
+  spaces} \newcommand{\Bs}{Banach spaces} \newcommand{\hs}{Hilbert
+  spaces} \newcommand{\comb}{
+\begin{tabular}{c}
+  \tvs\\$\Downarrow$\\\lctvs
+\end{tabular}
+}
+\begin{center}
+  \begin{tabular}{ccccc}
+    &\multicolumn{4}{l}{\ \comb}\\
+    $\Downarrow$ && \multicolumn{3}{c}{$\Downarrow$}\\
+    &&\multicolumn{3}{c}{\sns}\\
+    $\Downarrow$ && $\Downarrow$ && $\Downarrow$ \\
+    &&\ns && \phs \\
+    $\Downarrow$ && $\Downarrow$ && $\Downarrow$ \\
+    \fs & $\Longrightarrow$ &\multicolumn{1}{l}{\Bs} &
+    $\qquad\Longrightarrow \qquad$ &\multicolumn{1}{l}{\hs}
+  \end{tabular}
+\end{center}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "alfa"
+%%% End: 
