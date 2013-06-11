@@ -1,23 +1,26 @@
 BOOK  = alfa
 jobname = "-jobname=alfa"
 synctex = "-synctex=1"
+interaction = "-interaction=nonstopmode"
 preamble = "\input{preamble}"
 alfa = "\input{alfa}"
 AUX = alfa.aux toc.aux chap1.aux chap2.aux chap3.aux
+LaTeX = "pdflatex"
+opt = "${jobname} ${synctex} ${interaction}"
 
 all: ${BOOK}.pdf
 
 aux: ${AUX}
 
 ${BOOK}.pdf: aux
-	pdflatex ${jobname} ${synctex} ${preamble} ${alfa}
+	${LaTeX} ${opt} ${preamble} ${alfa}
 
 ${AUX}: *.tex
-	pdflatex ${jobname} ${preamble} ${alfa}
+	${LaTeX} ${opt} ${preamble} ${alfa}
 
 chap1 chap2 chap3:
-	pdflatex ${jobname} ${preamble} "\nofiles" "\includeonly{toc,$@}" ${alfa}
-	pdflatex ${jobname} ${synctex} ${preamble} "\includeonly{toc,$@}" ${alfa}
+	${LaTeX} ${opt} ${preamble} "\nofiles" "\includeonly{toc,$@}" ${alfa}
+	${LaTeX} ${opt} ${preamble} "\includeonly{toc,$@}" ${alfa}
 
 clean:
 	rm *.aux *.out *.toc *.log
