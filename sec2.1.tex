@@ -96,7 +96,7 @@ $x$. A closed set $F\subset E$ contains all limits of sequences
 contained in $F$, for $E\setminus F$ is a neighborhood of all of it
 points and contains no element of such a sequence.
 
-A topology can sometimes bedefined by means of a \emph{metric}, that
+A topology can sometimes be defined by means of a \emph{metric}, that
 is, a function of $d$ on $E\times E$ with values in the non-negative
 reals such that
 \begin{enumerate}[label=\alph*),itemindent=!,leftmargin=0pt]
@@ -108,8 +108,8 @@ reals such that
 for all $x,y,z\in E$. The metric gives rise to a system of
 neighborhoods of $x$,
 \begin{displaymath}
-  N_{x,\epsilon} = \{y\in E; d(x,y)<\epsilon\},\qquad
-  0<\epsilon\leq\infty,\ x\in E,
+  N_{x,\varepsilon} = \{y\in E; d(x,y)<\varepsilon\},\qquad
+  0<\varepsilon\leq\infty,\ x\in E,
 \end{displaymath}
 satisfying \ref{item:2.5},~\ref{item:2.6},~\ref{item:2.8} above, so
 the metric defines a topology. It follows from \ref{item:2.10} that
@@ -135,30 +135,30 @@ spaces:
   the union $\cup_1^{\infty}F_n$ has no interior point either.
 \end{thm}
 \begin{prf}
-  For any $x\in E$ and $\epsilon>0$ we want to show that
+  For any $x\in E$ and $\varepsilon>0$ we want to show that
   \begin{displaymath}
-    N_{x,\epsilon} = \left\{ y\in E;d(x,y)\leq\epsilon \right\}
+    N_{x,\varepsilon} = \left\{ y\in E;d(x,y)\leq\varepsilon \right\}
   \end{displaymath}
 is not contained in $\cup F_n$. To do so we want to choose sequences
-$x_j\in E$ and $\epsilon_j>0$ so that
+$x_j\in E$ and $\varepsilon_j>0$ so that
 \begin{displaymath}
-  N_{x,\epsilon}\supset N_{x_1,\epsilon_1}\supset
-  N_{x_2,\epsilon_2}\supset\cdots,\qquad F_j\cap
-  N_{x_j,\epsilon_j}=\emptyset \quad \text{for every } j.
+  N_{x,\varepsilon}\supset N_{x_1,\varepsilon_1}\supset
+  N_{x_2,\varepsilon_2}\supset\cdots,\qquad F_j\cap
+  N_{x_j,\varepsilon_j}=\emptyset \quad \text{for every } j.
 \end{displaymath}
-When $j<k$ this implies that $x_k\in N_{x_j,\epsilon_j}$, hence
-$d(x_j,x_k)<\epsilon_j$, so $x_k$ is a Cauchy sequence if
-$\epsilon_j\to 0$. The limit $y$ belongs to $N_{x_j,\epsilon_j}$ for
-every $j$ since $N_{x_j,\epsilon_j}$ is closed. Hence $y\notin\cup
+When $j<k$ this implies that $x_k\in N_{x_j,\varepsilon_j}$, hence
+$d(x_j,x_k)<\varepsilon_j$, so $x_k$ is a Cauchy sequence if
+$\varepsilon_j\to 0$. The limit $y$ belongs to $N_{x_j,\varepsilon_j}$ for
+every $j$ since $N_{x_j,\varepsilon_j}$ is closed. Hence $y\notin\cup
 F_j$ so the theorem will follow if we show that the sequences
-$x_j,\epsilon_j$ can be constructed. Suppose that
-$x_1,\epsilon_1,\dots,x_{j-1},\epsilon_{j-1}$ have already been
-chosen. By hypothesis the ball $N_{x_{j-1},\epsilon_{j-1}/2}$ contains
+$x_j,\varepsilon_j$ can be constructed. Suppose that
+$x_1,\varepsilon_1,\dots,x_{j-1},\varepsilon_{j-1}$ have already been
+chosen. By hypothesis the ball $N_{x_{j-1},\varepsilon_{j-1}/2}$ contains
 some point $x_j$ which is not in $F_j$. Since $F_j$ is closed we can
-choose $\epsilon_j$ so that $F_j\cap N_{x_j,\epsilon_j}=\emptyset$. If
-$\epsilon_j<\epsilon_{j-1}/2$, we have $N_{x_j,\epsilon_j}\subset
-N_{x_{j-1},\epsilon_{j-1}}$ by the triangle inequality, and
-$\epsilon_j<2^{1-j}\epsilon_1\to 0$. This proves the theorem.
+choose $\varepsilon_j$ so that $F_j\cap N_{x_j,\varepsilon_j}=\emptyset$. If
+$\varepsilon_j<\varepsilon_{j-1}/2$, we have $N_{x_j,\varepsilon_j}\subset
+N_{x_{j-1},\varepsilon_{j-1}}$ by the triangle inequality, and
+$\varepsilon_j<2^{1-j}\varepsilon_1\to 0$. This proves the theorem.
 \end{prf}
 \begin{exa}
   We give an example with $E=\mathbf{R}$. Let $f$ be a function from
