@@ -1,0 +1,72 @@
+\documentclass[12pt,letter]{memoir}
+\usepackage[hmargin={2.5cm},top={2cm},bottom={3cm}]{geometry}
+
+%% TITLE
+\setlength{\droptitle}{.1\textheight}
+\pretitle{\begin{center}\LARGE}
+\posttitle{\par\end{center}\vskip 1em}
+\postdate{\par\end{center}\vspace*{.5\textheight}}
+\renewcommand{\maketitlehookd}{%
+  \centering University of Lund}
+
+%% CHAPTER HEAD
+\makechapterstyle{alfa}{%
+\renewcommand*{\chapnamefont}{\large\centering\bfseries}
+\renewcommand*{\chapnumfont}{\chapnamefont}
+\renewcommand*{\chaptitlefont}{\chapnamefont}
+\renewcommand*{\printchapternum}{\chapnumfont\Roman{chapter}}
+\renewcommand*{\printchaptername}{%
+  \chapnamefont CHAPTER}
+\renewcommand*{\printchaptertitle}[1]{%
+  \chaptitlefont\MakeUppercase{##1}}
+}
+
+\setsecnumformat{\csname the#1\endcsname.\hspace*{.5em}}
+\newcommand{\secdot}[1]{\normalfont\bfseries #1.}
+\setsecheadstyle{\secdot}
+\setaftersecskip{-.4em}
+
+%% ToC
+\renewcommand*{\cftchaptername}{Chapter\space}
+\renewcommand*{\cftchapterdotsep}{\cftdotsep}
+\renewcommand*{\cftchapteraftersnum}{.\space}
+\renewcommand{\chapternumberline}[1]{%
+\cftchaptername\cftchapterpresnum{%
+\uppercase\expandafter{\romannumeral #1\relax}}\cftchapteraftersnum\hfil}
+
+%% FONTS
+\usepackage[T1]{fontenc}
+\usepackage{ccfonts}
+%\usepackage{lucidabr}
+
+%% MATH
+\usepackage[leqno]{amsmath}
+\numberwithin{equation}{section}
+\usepackage{amsthm,amsfonts,amssymb}
+\DeclareMathOperator{\im}{Im}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\codim}{codim}
+\DeclareMathOperator{\coker}{Coker}
+\DeclareMathOperator{\ind}{ind}
+
+%% THEOREM-LIKE
+\renewcommand{\qedsymbol}{}
+\newtheoremstyle{def}{1em}{1em}{}{}{\upshape}{:}{7pt}{}
+\newtheoremstyle{thm}{1em}{1em}{\slshape}{}{\upshape}{.}{7pt}{}
+\theoremstyle{def}
+\newtheorem*{prf}{\scshape Proof}
+\newtheorem*{rem}{\scshape Remark}
+\newtheorem{dfn}{\scshape Definition}[section]
+\newtheorem*{exa}{\scshape Example}
+\newtheorem{emp}[dfn]{\scshape Example}
+\theoremstyle{thm}
+\newtheorem{prop}[dfn]{\scshape Proposition}
+\newtheorem{thm}[dfn]{\scshape Theorem}
+\newtheorem{lem}[dfn]{\scshape Lemma}
+\newtheorem{cor}[dfn]{\scshape Corollary}
+\renewenvironment{proof}[1][Proof]{\begin{trivlist}
+\item[\hskip \labelsep {\scshape #1}]}{\end{trivlist}}
+
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage[colorlinks=true,linkcolor=red]{hyperref}

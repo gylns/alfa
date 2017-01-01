@@ -1,0 +1,169 @@
+\section{Vector space and linear transformations}
+Let $K$ be a field. (Later on $K$ will always be either the field
+$\mathbf{R}$ of real numbers or the field $\mathbf{C}$ of complex
+numbers.) We recall the following definition:
+\begin{dfn}\label{def:vector-space}
+ A \emph{vector space} $V$ over $K$ is an abelian group, with elements called
+ vectors and group operation denoted by $+$, such that to any $x\in V$
+ and $a\in K$ there is assigned an element $ax\in V$ such that
+ \begin{displaymath}
+ \begin{array}{cl}
+   a(x+y)=ax+ay& \textrm{ for all } x,y\in V \textrm{ and } a\in K,\\
+   (a+b)x=ax+bx& \textrm{ for all } x\in V \textrm{ and } a,b\in K,\\
+   (ab)x=a(bx)& \textrm{ for all } x\in V \textrm{ and } a,b\in K,\\
+   1\cdot x=x & \textrm{ for all } x\in V.
+ \end{array}
+\end{displaymath}
+ Here $1$ is the unit element in $K$.
+\end{dfn}
+These conditions are of course not independent of each other. Note
+that they imply that $x=(1+0)x=1\cdot x+0\cdot x=x+0\cdot x$, thus
+$0\cdot x=0$ for every $x\in V$. Here $0$ denotes both an element in
+$K$ and one in $V$, the origin.
+\begin{exa}
+  Let $M$ be an arbitrary set and denote by $V$ the set of all
+  functions on $M$ with values in $K$, sometimes denoted $K^M$. With
+  the operations defined by
+  \begin{displaymath}
+    (af+bg)(m)=af(m)+bg(m);\quad a,b \in K,\ f,g\in V,\ m\in M,
+  \end{displaymath}
+  it is clear that $V$ is a vector space over $K$. If
+  $M=\{1,\dots,n\}$, the space is usually denoted by $K^n$ and is the
+  set of all $n$-tuples of elements of $K$. Similarly the set $V^M$ of
+  functions from $M$ to a vector space $V$ over $K$ is a vector space
+  over $K$.
+\end{exa}
+More general examples are obtained as follows:
+\begin{prop}
+  Let $W$ be a subset of a vector space $V$ over $K$ such that for all
+  $x,y\in W$ and $a,b\in K$ we have $ax+by\in W$. Then $W$ is a vector
+  space with the operations inherited from $V$.
+\end{prop}
+The proof is obvious. One calls $W$ a \emph{linear subspace} of $V$.
+\begin{exa}
+  The set $V$ of all $f\in K^M$ such that $\sum_M|f(m)|<\infty$ is
+  clearly a linear subspace of $K^M$. (Here $K=\mathbf{R}$ or $K=\mathbf{C}$.)
+\end{exa}
+Given a vector space $V$ and a linear subspace $V_1$ we can construct
+another vector space $V/V_1$, called the \emph{quotient space} of $V$
+by $V_1$, as follows: If $x,y\in V$ and $x-y\in V_1$, we write $x\equiv
+y$ and say that $x$ is congruent to $y \mod V_1$. This is an
+equivalence relation. Since~$x\equiv x_1$ and $y\equiv y_1$ implies
+that $ax+by\equiv ax_1+by_1$, the addition and multiplication by
+scalars in $V$ induce such operations in $V/V_1$ which will clearly
+inherit the properties required in Definition~\ref{def:vector-space}.
+\begin{prop}
+  if $V_2\subset V_1\subset V$ where $V$ is a vector space and
+  $V_1,V_2$ are its linear subspaces, then the map $V/V_2\to V/V_1$
+  gives an isomorphism
+  \begin{displaymath}
+    (V/V_2)/(V_1/V_2)\to V/V_1.
+  \end{displaymath}
+\end{prop}
+The simple proof is left to the reader. Instead we pass to introducing
+the appropriate maps between vector space.
+% \begin{prf}
+% If $z/V_2\in V_1/V_2$ then $z\in V_1$, since $z=(z-z_1)+z_1$
+% here $z_1\in V_1$ and $z-z_1\in V_2\subset V_1$. From this, we know
+% $x/V_2\equiv y/V_2\mod V_1/V_2$ iff $(x-y)/V_2\in V_1/V_2 \iff  x-y\in
+% V_1$, that is $x\equiv y\mod V_1$.
+% \end{prf}
+\begin{dfn}
+  Let $V_1$ and $V_2$ be two vector spaces over $K$. A map $T$ from
+  $V_1$ to $V_2$ is called a \emph{linear map} (or \emph{linear
+    transformation}) if $T$ commutes with the vector operations, that
+  is,
+  \begin{displaymath}
+    T(ax+by)=aTx+bTy;\quad x,y\in V_1;\ a,b\in K.
+  \end{displaymath}
+\end{dfn}
+The linear maps from $V_1$ to $V_2$ form a vector space $L(V_1,V_2)$,
+which is a linear subspace of $V_2^{V_1}$. Thus
+\begin{displaymath}
+  (a_1T_1+a_2T_2)x=a_1T_1x+a_2T_2x \quad \text{ when } a_1, a_2\in K
+  \text{ and } x\in V_1.
+\end{displaymath}
+It is also obvious that the composition of two linear maps is a linear map.\par
+Recall that a (linear) map $T$ from $V_1$ to $V_2$ is called:
+\begin{enumerate}[label=(\arabic*),labelindent=\parindent,leftmargin=*]
+\item \emph{injective} if $Tx=Ty$ implies $x=y$,
+\item \emph{sujective} if for every $y\in V_2$ we have $Tx=y$ for some
+  $x\in V_1$,
+\item \emph{bijective} if it is both injective and surjective, and
+  thus an isomorphism.
+\end{enumerate}
+Since $Tx=Ty$ is equivalent to $T(x-y)=0$, injectivity means precisely
+that $Tx=0$ implies $x=0$.
+\begin{exa}
+  If $V_1$ is a linear subspace of $V$, then the inclusion map $V_1\to
+  V$ is injective, and the quotient map $V\to V/V_1$ is surjective.
+\end{exa}
+In general a linear map $T$ from $V_1$ to $V_2$ is of course neither
+injective nor surjective, so one has to consider the kernel
+\begin{displaymath}
+  \Ker T=\left\{ x\in V_1;\ T(x)=0 \right\}
+\end{displaymath}
+and the range
+\begin{displaymath}
+  \im T=\left\{ T(x)\in V_2;\ x\in V_1\right\}
+\end{displaymath}
+It is obvious that the kernel is a linear subspace of $V_1$ and that
+the range is a linear subspace of $V_2$. The map $T$ induces a bijection
+$T'$ from $V_1/\Ker T$ to $\im T$ since $T$ maps two elements
+$x_1,x_2$ in $V_1$ to the same element in $V_2$ if and only if $x_1$
+and $x_2$ are congruent modulo $\Ker T$. Often we shall somewhat
+incorrectly denote $T'$ by $T$, although $T$ is really a composition
+\begin{displaymath}
+  V_1\to V_1/\Ker T\xrightarrow{\ T'} \im T\to V_2
+\end{displaymath}
+where the first map is the quotient map and the last is include map.
+\begin{dfn}\label{def:direct-sum}
+  If $V_1,\,V_2$ are linear subspaces of a vector space $V$, then $V$
+  is said to be the \emph{direct sum} of $V_1$ and $V_2$ if every
+  $x\in V$ in one and only one way can be written $x=x_1+x_2$ with
+  $x_j\in V_j$. One also calls $V_2$ a supplement of $V_1$. We write
+  $V=V_1\oplus V_2$.
+\end{dfn}
+Let $P_i$ be the map $x\mapsto x_i$. This is then a linear map, and we
+have $\im P_i=V_i$, \linebreak $\Ker P_1= V_2,\ \Ker P_2=V_1$. Moreover, the
+restriction of $P_j$ to $V_j$ is the identity map of $V_j$. It is
+obvious that, with $I=$ identity map,
+\begin{equation}
+  \label{eq:1.1.1}
+  I=P_1+P_2;\quad P_1P_2=P_2P_1=0;\quad P_j^2=P_j.
+\end{equation}
+Conversely, given a linear map $P: V\to V$ with $P^2=P$, if we set
+$P_1=P$ and $P_2=I-P$, then the relations (\ref{eq:1.1.1}) are
+fulfilled. If $V_1=\Ker P_2,\ V_2=\Ker P_1$, then $x=P_1x+P_2x=P_1x$
+when $x\in V_1$, and $x=P_2x$ when $x\in V_2$. Thus $P_j$ leaves the
+elements of $V_j$ fixed. The equation $x=x_1+x_2$ with $x_j\in V_j$
+implies that $P_jx=P_jx_j=x_j$. Conversely, $x=x_1+x_2$ if we set
+$x_j=P_jx\in V_j$. Thus $V$ is the direct sum of $V_1$ and $V_2$, and
+$P_1,P_2$ are precisely the maps corresponding to this
+decomposition. We have thus found that there is a one-to-one
+correspondence between direct sum decompositions of $V$ and
+projections:
+\begin{dfn}
+  A linear map $P: V\to V$ is called a projection if
+  \begin{displaymath}
+    P^2=P.
+  \end{displaymath}
+\end{dfn}
+That $V$ is the direct sum of $V_1$ and $V_2$ means precisely that the
+restriction to $V_2$ of the map $V\to V/V_1$ is a bijection, in other
+words, that each equivalence class modulo $V_1$ contains a unique
+element of $V_2$.\par
+Note that given two vector spaces $V_1$ and $V_2$ we can construct a
+vector space
+\begin{displaymath}
+  V=\{(x_1,x_2);x_j\in V_j\}
+\end{displaymath}
+with vector operations obtained from those in $V_j$ for each
+component. We can regard $V_1$ (resp. $V_2$) as the subspace of $V$
+for which $x_2=0$ (resp. $x_1=0$). Then we have the situation in
+Definition \ref{def:direct-sum}.
+
+%%% Local Variables: 
+%%% mode: LaTeX
+%%% TeX-master: "alfa"
+%%% End: 

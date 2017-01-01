@@ -1,0 +1,369 @@
+\section{Diemension and rank}
+We shall now assign every vector space $V$ over $K$ its dimension
+$\dim_KV$ or $\dim V$ for short. This should be a non-negative integer
+or $+\infty$ with the following properties:
+\begin{enumerate}[label=\alph*)]
+\item\label{item:1.1} $\dim K^n=n$,
+\item\label{item:1.2} if $T:V_1\to V_2$ is a surjective (injective) linear map, then
+  \begin{displaymath}
+    \dim V_1\geq \dim V_2 \quad(\textrm{resp. }\dim V_1\leq\dim V_2).
+  \end{displaymath}
+\end{enumerate}
+We shall see that this is possible in one and only one way.\par
+Indeed, let $V$ be a vector space over $K$ and consider linear maps
+\begin{displaymath}
+  T: K^n\to V.
+\end{displaymath}
+Such a map is completely determined by the vectors $Te_i=x_i\in V$,
+where $e_i$ is the element\linebreak in $K^n$ with $i$th coordinate $1$ and the
+other coordinates $0$. For using the linearity of $T$ we obtain
+\begin{equation}
+  \label{eq:1.2.1}
+  T(a_1,\dots,a_n)=\sum_1^na_jx_j,\quad a_j\in K;
+\end{equation}%\clearpage\noindent
+conversely, given $x_1,\dots,x_n\in V$ the equation (\ref{eq:1.2.1})
+defines a linear map $K^n\to V$ with $Te_i=x_i$. We recall the
+following terminology:
+\begin{dfn}
+  the vectors $x_1,\dots,x_n\in V$ are called \emph{linearly
+    independent} if the map $T$ defined by (\ref{eq:1.2.1}) is
+  injective; they are said to \emph{generate} $V$ if $T$ is
+  surjective; and they are called a \emph{basis} if $T$ is bijective.
+\end{dfn}
+To use conditions \ref{item:1.1} and \ref{item:1.2} above we shall
+consider both surjective and injective maps from spaces $K^n$ to
+$V$. To relate them we need the following lemma --- the only
+non-trivial point in the discussion.
+\begin{lem}\label{lem:1.2.2}
+  If $T_1: K^n\to V$ is a surjective and $T_2: K^m\to V$ is an
+  injective linear map, then $m\leq n$.
+\end{lem}
+\begin{prf}
+  Since $T_1$ is surjective, we can choose a linear map $T: K^m\to K^n$
+  such that $T_2=T_1T$. In fact, it suffices to choose $Te_j$ with
+  $T_1(Te_j)=T_2e_j$ when $e_j$ is a basis vector in $K^m$. Then $T$ is
+  injective since $T_2$ is injective, so it suffices to prove that if
+  \begin{displaymath}
+    T: K^m\to K^n
+  \end{displaymath}
+is an injective linear map, then $m\leq n$ (or equivalently that
+a homogeneous system of equations with fewer equations than unknowns
+always has a non-trivial solution). This is obvious if $n=1$ since two
+arbitrary elements in $K^n$ are proportional then. We prove the
+statement in general assuming that it is already known for smaller
+values of $n$. Define $Q: K^n\to K^{n-1}$ by
+\begin{displaymath}
+  Q(a_1,\dots,a_n)=(a_1,\dots,a_{n-1})
+\end{displaymath}
+and $R_k: K^{m-1}\to K^m$ for $1\leq k\leq m$ by
+\begin{displaymath}
+  R_k(a_1,\dots,a_{m-1})=(a_1,\dots,a_{k-1},0,a_k,\dots,a_{m-1}).
+\end{displaymath}
+If $QT: K^m\to K^{n-1}$ is injective it follows by inductive
+hypothesis that $m\leq n-1$. Otherwise, if $a$ and $b$ are two
+non-zero elements in $\Ker QT$, then $Ta$ and $Tb$ are proportional
+and not zero, so $a$ is proportional to $b$ since $T$ is
+injective. Choose $k$ so that the $k$th coordinate $a_k\neq 0$. hence
+$b_k\neq 0$. Then the map $QTR_k: K^{m-1}\to K^{n-1}$ is injective,
+so $m-1\leq n-1$ by the inductive hypothesis. The proof is complete.
+\end{prf}
+\begin{thm}
+  Let $V$ be a vector space over $K$ such that there exists a
+  surjective map $T: K^n\to V$ for some $n$. Every system of linearly
+  independent vectors $x_1,\dots,x_k$ in $V$ can then be extented to a
+  basis $x_1,\dots,x_k,x_{k+1},\dots,x_d$. Every system of generators
+  contains a basis. All bases in $V$ have the same number of elements
+  $d$. The number $d$ is also the smallest such that there exists a
+  surjective linear map $K^{d}\to V$ as well as the largest such that
+  there exists an injective linear map $K^d\to V$; such maps are
+  automatically bijective.
+\end{thm}
+\begin{prf}
+  Let $D$ be the smallest integer such that there is a surjective map
+  $K^D\to V$, and let $d$ be the largest integer such that there is an
+  injective map $K^d\to V$. The existence of $D$ is guaranteed by the
+  hypothesis, and it follows from Lemma \ref{lem:1.2.2} that $d$ is
+  defined and $\leq D$. Let now $x_1,\dots,x_k$ be a system of
+  linearly independent elements in $V$. Then we have $k\leq d$. If
+  they do not form a basis we can choose $x_{k+1}$ which is not a
+  linear combination of $x_1,\dots,x_k$. Then $x_1,\dots,x_{k+1}$ are
+  linearly independent, for if
+  \begin{displaymath}
+    a_1x_1+\cdots+a_{k+1}x_{k+1}=0
+  \end{displaymath}
+we cannot have $a_{k+1}\neq 0$ since division by $a_{k+1}$ would then
+show that $x_{k+1}$ is a linear combination of $x_1,\dots,x_k$. Thus
+$a_{k+1}=0$ and since $x_1,\dots,x_k$ are linearly independent it
+follows that $a_1=\cdots=a_k=0$ also. We can thus extend the system
+$x_1,\dots,x_k$ until we get a basis $x_1,\dots,x_N$. Then we have
+$N\leq d\leq D\leq N$, so $N=d=D$.\par
+Now assume that $x_1,\dots,x_k$ is a system of generators. If they are
+not linearly independent then one of them, say $x_k$ is a linear
+combination of the others, so $x_1,\dots,x_{k-1}$ is also a system of
+generators. We can continue dropping elements until we have a linearly
+independent system of generators, that is, a basis. The theorem is proved.
+\end{prf}
+The proof also shows that if there is no surjective map $K^n\to V$ for
+any $n$, then one find an injective map $K^n\to V$ for any $n$. The
+following definition of the dimension is therefore the only one which
+can have the properties \ref{item:1.1} and \ref{item:1.2} stated at the
+beginning of the section.
+\begin{dfn}
+  A vector space $V$ over $K$ is said to have finite dimension (over
+  $K$) if there exists a surjective linear map $K^n\to V$ for some
+  $n$. The smallest such integer $n$ is equal to the largest integer
+  $n$ such that there is an injective linear map $K^n\to V$. It is
+  called the \emph{dimension} of $V$. If $V$ does not have finite
+  dimension we say that $V$ is infinite dimensional and write $\dim
+  V=\infty$.
+\end{dfn}
+\begin{rem}
+  In case there may be some doubt which scalar field $K$ is being used
+  we shall make this clear by writing $\dim_KV$ for the dimension of
+  $V$ as a vector space over $K$.
+\end{rem}
+It is clear that the dimension of $K^n$ is equal to $n$ as desired,
+and we also have the property \ref{item:1.2}:
+\begin{thm}\label{thm:1.2.5}
+  If the linear map $T: V_1\to V_2$ is surjective resp. a injective or
+  bijective, then
+  \begin{displaymath}
+    \dim V_1\geq\dim V_2 \quad\text{resp.}\ \dim V_1\leq\dim V_2
+    \quad\text{or}\ \dim V_1=\dim V_2.
+  \end{displaymath}
+\end{thm}
+\begin{prf}
+  Let $T$ be surjective. There is nothing to prove unless
+   {$\dim V_1<\infty$}. From any surjective map $K^n\to V_1$ we then obtain by
+  composition with $T$ a surjective map $K^n\to V_2$, which proves
+  that $\dim V_1\geq \dim V_2$. If $T$ is injective, we conclude that
+  $\dim V_1\leq \dim V_2$ if we consider injective maps $K^n\to V_1$
+  instead. This proves the theorem.
+\end{prf}
+In particular, the dimension of a subspace or a quotient space of $V$
+is thus smaller than or equal to the dimension of $V$. If we recall
+that a linear map $T:V_1\to V_2$ gives rise to a bijection
+$T':V_1/\Ker T\to \im T$ , hence that
+\begin{equation}
+  \label{eq:1.2.2}
+  \dim (V_1/\Ker T)=\dim(\im T),
+\end{equation}
+we recover Theorem \ref{thm:1.2.5} from these special cases. The
+number occurring in \eqref{eq:1.2.2} is so important that it has a
+special name:
+\begin{dfn}
+  If $T$ is a linear map $V_1\to V_2$, then the \emph{rank} of $T$ is
+  defined as $\dim(\im T)$ or equivalently as $\dim(V_1/\Ker T)$.
+\end{dfn}
+In a moment we shall write \eqref{eq:1.2.2} in various other ways, but
+first it is useful to introduce another concept:
+\begin{dfn}
+  If $V$ is a vector space and $W$ a linear subspace, then the
+  \emph{codimension} of $W$ in $V$, denoted $\codim_V\,W$ or
+  simply $\codim W$, is defined to be the dimension of the
+  quotient space $V/W$.
+\end{dfn}
+In finite dimensional spaces this notion is not indispendable, for we
+have
+\begin{thm}\label{thm:1.2.8}
+  If $V$ is a vector space and $W$ a linear subspace, then
+  \begin{displaymath}
+    \dim W+\codim W=\dim V.
+  \end{displaymath}
+  \begin{prf}
+    Since $\dim W\leq\dim V$ and $\codim W\leq\dim V$, we may
+    assume in the proof that the left hand side is finite. Let
+    $T_1:K^n\to W$ and $T_2:K^m\to V/W$ be bijections, thus $n=\dim W$
+    and $m=\codim W$. We lift $T_2$ to a map $T_2':K^m\to V$
+    such that the composition with the quotient map $V\to V/W$ is
+    equal to $T_2$. Then
+    \begin{displaymath}
+      T=T_1\oplus T_2':K^{n+m}=K^n\oplus K^m\ni (a,b)\mapsto
+      T_1a+T_2'b\in V
+    \end{displaymath}
+    is bijecitive. In fact, if $T(a,b)=0$ then composition with the
+    quotient map $V\to V/W$ shows that $T_2b=0$, hence $b=0$. It
+    follows that $T_1a=0$ so $a=0$ also. In a similar way one
+    concludes that $T$ is surjective, which proves the theorem.
+  \end{prf}
+\end{thm}
+We can write \eqref{eq:1.2.2} in the form
+\begin{equation*}
+  \codim \Ker T=\dim\im T.\tag*{$(\ref{eq:1.2.2})'$}
+\end{equation*}
+Using Theorem \ref{thm:1.2.8} we therefore obtain
+\begin{thm}\label{thm:1.2.9}
+  Let $T:V_1\to V_2$ be a linear map. Then
+  \begin{displaymath}
+    \dim\im T+\dim\Ker T=\dim V_1,\quad\codim \im
+    T+\codim \Ker T=\dim V_2.
+  \end{displaymath}
+If $V_1$ and $V_2$ have finite dimension, then
+\begin{equation}
+  \label{eq:1.2.3}
+  \dim\Ker T-\dim\coker T=\dim V_1-\dim V_2.
+\end{equation}
+\end{thm}
+Here we have used the notation $\coker T=V_2/\im T$. In the
+special case when $\dim V_1=\dim V_2$ the result \eqref{eq:1.2.3} is
+classically phrased as follows:\par
+The number of linear conditions for solvability of the equation $Tx=y$
+is equal to the number of linearly independent solutions of the
+equation $Tx=0$.\par
+One of our main goals is to discuss infinite dimensional extensions of
+this rule or the more general formula \eqref{eq:1.2.3}. In the
+algebraic case this discussion will begin in the following section. We
+shall then need some identities concerning dimensions of vector spaces
+which will now be derived.\par
+Let
+\begin{equation}
+  \label{eq:1.2.4}
+  0\to V_0\xrightarrow{\ T_0}V_1\xrightarrow{\ T_1}V_2\xrightarrow{\
+    T_2}\dots\xrightarrow{\ T_{N-1}}V_N\to0
+\end{equation}
+be a sequence of vector spaces and linear maps, starting with $0$
+dimensional vector space consisting of the origin only and ending in
+the same way. One calls \eqref{eq:1.2.4} a \emph{complex} if
+$T_{j+1}T_j=0$ for every $j$. This means that
+\begin{displaymath}
+  \im T_j\subset \Ker T_{j+1}.
+\end{displaymath}
+The complex is called \emph{exact} if $\im T_j=\Ker T_{j+1}$ for every
+$j$, which in particular shall mean that $T_0$ is injective and that
+$T_{N-1}$ is surjective. If $N=1$ exactness therefore means that
+$T_0:V_0\to V_1$ is bijective, and then we know that $\dim V_0=\dim
+V_1$. This fact is generalised as follows:
+\begin{thm}
+  \label{thm:1.2.10}
+  If \eqref{eq:1.2.4} is an exact complex of vector spaces and linear
+  maps, then
+  \begin{equation}
+    \label{eq:1.2.5}
+    \sum_j\dim V_{2j}=\sum_j\dim V_{2j+1}
+  \end{equation}
+or, if all dimensions are finite,
+\begin{equation}
+  \label{eq:1.2.6}
+  \sum_j(-1)^j\dim V_j=0.
+\end{equation}
+\end{thm}
+\begin{prf}
+  Let $R_j=\Ker T_j=\im T_{j-1}$. By theorem \ref{thm:1.2.8} and
+  \eqref{eq:1.2.2} we have
+  \begin{displaymath}
+    \dim V_j=\dim R_j+\codim R_j=\dim R_j+\dim R_{j+1}
+  \end{displaymath}
+which shows that both sides of \eqref{eq:1.2.5} are equal to $\sum\dim
+R_j$.
+\end{prf}
+As a first example we note that given a linear map $T:V_1\to V_2$ we
+have an exact sequence
+\begin{displaymath}
+  0\to\Ker T\to V_1\to\im T\to0
+\end{displaymath}
+where the first map is a restriction of $T$ and the second is a
+quotient map. Hence we obtain
+\begin{displaymath}
+  \dim\Ker T+\dim\im T=\dim V_1.
+\end{displaymath}
+Similarly, we have an exact sequence
+\begin{displaymath}
+  0\to V_1/\Ker T\to V_2\to V_2/\im T\to0
+\end{displaymath}
+where the first map is induced by $T$ and the  second is a quotient
+map. This gives
+\begin{displaymath}
+  \codim \Ker T+\codim \im T=\dim V_2
+\end{displaymath}
+as we already knew from Theorem \ref{thm:1.2.9}. Further important
+examples are given in the following
+\begin{thm}
+  \label{thm:1.2.11}
+  Let $V_1$ and $V_2$ be linear subspaces of vector space $V$, and let
+  $V_1+V_2$ be the subspace $\left\{ x_1+x_2;\,x_1\in V_1,x_2\in V_2
+  \right\}$. Then we have
+\begin{gather}
+  \dim(V_1\cap V_2)+\dim(V_1+V_2) =\dim V_1+\dim V_2,\label{eq:1.2.7}\\
+      \codim(V_1\cap
+      V_2)+\codim(V_1+V_2)=\codim V_1+\codim V_2,\label{eq:1.2.8}\\
+      \dim(V_1\cap
+      V_2)+\codim V_2=\codim(V_1+V_2)+\dim V_1.\label{eq:1.2.9}
+\end{gather}
+\end{thm}
+Note that these equalities are equivalent if $V$ has finite dimension
+but not otherwise.
+\begin{prf}
+  We have an exact sequence
+  \begin{displaymath}
+    0\to V_1\cap V_2\to V_1\oplus V_2\to V_1+V_2\to0
+  \end{displaymath}
+where the first map is $V_1\cap V_2\ni x\mapsto(x,x)\in V_1\oplus
+V_2$, and the second map is $V_1\oplus V_2\ni (x_1,x_2)\mapsto
+x_1-x_2$. The trivial verification of exactness is omitted. This gives
+\eqref{eq:1.2.7}. Similarly the exact sequence
+\begin{displaymath}
+  0\to V/(V_1\cap V_2)\to(V/V_1)\oplus(V/V_2)\to V/(V_1+V_2)\to0
+\end{displaymath}
+leads to \eqref{eq:1.2.8}. Finally \eqref{eq:1.2.9} is obtained from
+the exact sequence
+\begin{displaymath}
+  0\to V_1\cap V_2\to V_1\to V/V_2\to V/(V_1+V_2)\to0.
+\end{displaymath}
+The definition of the various maps and the proof of exactness are left
+as an exercise for the reader.
+\end{prf}
+Finally we shall make a remark on \emph{duality:}
+\begin{dfn}
+  Let $V_1$ and $V_2$ be two vector spaces over $K$, and let
+  $V_1\times V_2\ni (x,y)\mapsto\langle x,y\rangle\in K$ be a bilinear
+  form, that is, a function which is linear in $x$ (resp. $y$) when
+  $y$ (resp. $x$) is fixed. The form is said to define a duality
+  between $V_1$ and $V_2$ if
+  \begin{gather}
+    \langle x,y\rangle=0 \quad\forall y\in V_2\,\Longrightarrow\,
+    x=0,\label{eq:1.2.10}
+    \\
+    \langle x,y\rangle=0 \quad\forall x\in V_1\,\Longrightarrow\, y=0.\label{eq:1.2.11}
+  \end{gather}
+\end{dfn}
+An example is $V_1=V_2=K^n$ and
+\begin{equation}
+  \label{eq:1.2.12}
+  \langle x,y\rangle=\sum_1^nx_jy_j;\qquad x=(x_1,\dots,x_n),\,y=(y_1,\dots,y_n).
+\end{equation}
+This is more than an example:
+\begin{thm}
+  \label{thm:1.2.13}
+  If $V_1$ and $V_2$ are two vector spaces which are dual with respect
+  to a bilinear form $\langle\cdot,\cdot\rangle$, then $\dim V_1=\dim
+  V_2$. If this dimension is finite, then \eqref{eq:1.2.12} holds for
+  the coordinates with respect to suitable bases in $V_1$ and $V_2$.
+\end{thm}
+\begin{prf}
+  There is nothing to prove unless one of the spaces, say $V_1$, is
+  finite dimensional. Then we choose a basis $e_1,\dots,e_n$ for $V_1$
+  and consider the linear map
+  \begin{displaymath}
+    \varphi:V_2\ni y\mapsto (\langle e_1,y\rangle,\dots,\langle
+    e_n,y\rangle)\in K^n.
+  \end{displaymath}
+$\varphi$ is injective since $\langle e_j,y\rangle=0,\,j=1,\dots,n$,
+implies $\langle x,y\rangle=0,\,x\in V_1$, hence $y=0$. This proves
+that $\dim V_2\leq n=\dim V_1$, and interchanging the roles of $V_1$
+and $V_2$ we conclude that $\dim V_1=\dim V_2$. Thus $\varphi$ is
+bijective. The inverse can be written
+\begin{displaymath}
+  K^n\ni (y_1,\dots,y_n)\mapsto\sum_1^ny_if_i,
+\end{displaymath}
+where $f_1,\dots,f_n$ is a basis for $V_2$. Hence
+\begin{displaymath}
+  \left\langle\sum x_je_j,\sum y_if_i\right\rangle=\sum x_j(\varphi(\sum
+  y_if_i))_j=\sum x_jy_j
+\end{displaymath}
+as claimed.
+\end{prf}
+
+%%% Local Variables: 
+%%% mode: LaTeX
+%%% TeX-master: "alfa"
+%%% End: 

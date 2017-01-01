@@ -1,0 +1,289 @@
+\section{Topological and metric spaces}
+Let us first recall that a set $E$ is called a topological space if
+there is given a family $\O$ of subsets, which are said to be
+\emph{open}, such that 
+\begin{enumerate}[label=\alph*),itemindent=!,leftmargin=0pt]
+\item\label{item:2.1} $E\in\O$,
+\item\label{item:2.2} the union of the sets in any subfamily of $\O$ is always a set in $\O$,
+\item\label{item:2.3} the intersection of finitely many sets in $\O$ is also in $\O$.
+\end{enumerate}
+The space $E$ is called a Hausdorff space if in addition
+\begin{enumerate}[resume*]
+\item\label{item:2.4} for two arbitrary different points $x,y\in E$ one can always
+  find two disjoint sets in $\O$ containing $x$ and $y$ respectively.
+\end{enumerate}\par
+The complements in $E$ of the open sets are said to be
+\emph{closed}. According to \ref{item:2.2} and \ref{item:2.3}
+\emph{arbitrary intersections and finite unions of closed sets are
+  closed.} For every set $M\subset E$ the intersection $\overline{M}$
+of all closed sets containing $M$ is therefore closed, hence the
+smallest closed set containing $M$.
+
+A subset $N$ of $E$ is called a neighborhood of $x\in E$ (and $x$ is
+said to be an interior point of $N$) if $x\in O\subset N$ for some
+$O\in\O$. The neighborhoods of $x$ have the following properties:
+\begin{enumerate}[label=\roman*),itemindent=!]
+\item\label{item:2.5} $E$ is a neighborhood of $x$, and $x$ belongs to
+  every neighborhood of $x$,
+\item\label{item:2.6} the intersection of a finite number of
+  neighborhoods of $x$ is a neighborhood of $x$,
+\item\label{item:2.7} if $N$ is a neighborhood of $x$ and $N'\supset
+  N$, then $N'$ is a neighborhood of $x$,
+\item\label{item:2.8} if $N$ is a neighborhood of $x$ then there is
+  another neighborhood $N'$ of $x$ such that $N$ is a neighborhood of
+  every $y\in N'$.
+\end{enumerate}
+From the neighborhoods one can reconstruct the open sets: If $O$ is a
+subset of $E$ then $O\in\O$ if (and only if) $O$ is a neighborhood of
+all of its points. In fact, for every $x\in O$ we can then find
+$O_x\in\O$ with $x\in O_x\subset O$. Hence $\cup_{x\in O}O_x=O$ is in
+$\O$ by condition \ref{item:2.2}.
+
+Suppose now instead that for every $x\in E$ we are given a family
+$\V_x$ of subset of $E$ called neighborhoods of $x$, so that
+\ref{item:2.5} and \ref{item:2.6} are fulfilled. We can then define a
+topology $\T$ in $E$ by declaring that a set $O\subset E$ is open if
+for every $x\in O$ we have $N\subset O$ for some $N\in\V_x$. Then
+\ref{item:2.1} follows from \ref{item:2.5}, \ref{item:2.2} is trivial,
+and \ref{item:2.3} follows from \ref{item:2.6} or even the weaker
+version
+\begin{enumerate}[label=\roman*)$'$,start=2]
+\item\label{item:2.9} the intersection of a finite number of
+  neighborhoods of $x$ contains a neighborhood of $x$.
+\end{enumerate}
+If $\N$ is a neighborhood of $x$ in the topology $\T$ thus defined,
+then we can find an open set $O$ with $x\in O\subset\N$, hence some
+$N'\in\V_x$ with $x\in N'\subset O\subset\N$, so $\N$ contains one of
+our original ``neighborhoods''. Now suppose that \ref{item:2.8} is
+fulfilled, and let $N\in\V_x$. Denote by $O$ the set of all $y\in N$
+such that $N\in\V_y$. By \ref{item:2.8} we can then find $N_y'\in\V_y$
+such that $N\in\V_z$ for every $z\in N'_y$, thus $N'_y\subset O$. This
+means that $O$ is open in the topology $\T$ and since $x\in O\subset
+N$ we see that $N$ is also a neighborhood of $x$ in the topology
+$\T$. The neighborhoods of $x$ in the topology $\T$ are therefore
+precisely the sets containing some set belonging to $\V_x$. If
+\ref{item:2.7} is fulfilled the neighborhoods are precisely those we
+were given from the beginning.
+
+To define a topology we can therefore either give a family of open
+sets satisfying \ref{item:2.1},~\ref{item:2.2},~\ref{item:2.3} or give
+the families $\V_x$ of neighborhoods satisfying at least
+\ref{item:2.5},~\ref{item:2.9},~\ref{item:2.8}. If condition
+\ref{item:2.7} is not required one calls the sets $\V_x$ a
+\emph{neighborhood basis} or a \emph{fundamental system of
+  neighborhoods}. The neighborhoods of $x$ in the topology defined are
+precisely the sets which contain some set belonging to $\V_x$.
+
+Any subset $E_1$ of $E$ is itself a topological space with the
+restriction of the topology in $E:$ The open sets in $E_1$ are by
+definition the sets $O\cap E_1$ with $O\in\O$.
+
+A map $f:E_1\to E_2$ between topological spaces is called
+\emph{continuous} if for every open set $O\subset E_2$ the
+\emph{inverse image}
+\begin{displaymath}
+  f^{-1}(O)\eqdef\{x\in E_1; f(x)\in O\}
+\end{displaymath}
+is an open set. Equivalently this means that for every neighborhood
+$N_2$ of $f(x)$ one can find a neighborhood $N_1$ of $x$ with
+$f(N_1)\subset N_2$.
+
+A sequence $x_j\in E$ is said to converge to $x\in E$ if for any
+neighborhood $N$ of $x$ all but a finite number of the points $x_j$
+belong to $N$. If the Hausdorff separation axiom \ref{item:2.4} above
+is satisfied, then this cannot happen for more than one value of
+$x$. A closed set $F\subset E$ contains all limits of sequences
+contained in $F$, for $E\setminus F$ is a neighborhood of all of it
+points and contains no element of such a sequence.
+
+A topology can sometimes be defined by means of a \emph{metric}, that
+is, a function of $d$ on $E\times E$ with values in the non-negative
+reals such that
+\begin{enumerate}[label=\alph*),itemindent=!,leftmargin=0pt]
+\item\label{item:2.10} $d(x,z)\leq d(x,y)+d(y,z)$, (the triangle
+  inequality),
+\item\label{item:2.11} $d(x,y)=d(y,x)$,
+\item\label{item:2.12} $d(x,y)=0\Longleftrightarrow x=y$,
+\end{enumerate}
+for all $x,y,z\in E$. The metric gives rise to a system of
+neighborhoods of $x$,
+\begin{displaymath}
+  N_{x,\varepsilon} = \{y\in E; d(x,y)<\varepsilon\},\qquad
+  0<\varepsilon\leq\infty,\ x\in E,
+\end{displaymath}
+satisfying \ref{item:2.5},~\ref{item:2.6},~\ref{item:2.8} above, so
+the metric defines a topology. It follows from \ref{item:2.10} that
+$d(x,y)$ is a continuous function of $x$ (or $y$) in this topology. It
+is clear that the topology satisfies the Hausdorff separation
+condition \ref{item:2.4} above. (Note that all topologies cannot be
+defined by a metric, and that different metrics may define the same
+topology.)
+
+A metric space is called \emph{complete} if for every \emph{Cauchy
+  sequence}, that is, every sequence $x_n\in E$ with $d(x_n,x_m)\to 0$
+as $n,m\to\infty$, there is an element $x\in E$ such that $x_n\to x$,
+that is, $d(x_n,x)\to 0$. The real numbers $\mathbf{R}$ and the
+complex numbers $\mathbf{C}$ with the usual distance $d(x,y)=|x-y|$
+for $x,y\in \mathbf{C}$ are examples of complete metric spaces.
+
+Some of the most important theorems in functional analysis follow from
+a fundamental classical theorem of Baire concerning complete metric
+spaces:
+\begin{thm}\label{thm:2.1.1}
+  (Baire) Let $E$ be a complete metric space, and let $F_n,\ 
+  n=1,2,\dots,$ be closed subsets containing no interior points. Then
+  the union $\cup_1^{\infty}F_n$ has no interior point either.
+\end{thm}
+\begin{prf}
+  For any $x\in E$ and $\varepsilon>0$ we want to show that
+  \begin{displaymath}
+    N_{x,\varepsilon} = \left\{ y\in E;d(x,y)\leq\varepsilon \right\}
+  \end{displaymath}
+is not contained in $\cup F_n$. To do so we want to choose sequences
+$x_j\in E$ and $\varepsilon_j>0$ so that
+\begin{displaymath}
+  N_{x,\varepsilon}\supset N_{x_1,\varepsilon_1}\supset
+  N_{x_2,\varepsilon_2}\supset\cdots,\qquad F_j\cap
+  N_{x_j,\varepsilon_j}=\emptyset \quad \text{for every } j.
+\end{displaymath}
+When $j<k$ this implies that $x_k\in N_{x_j,\varepsilon_j}$, hence
+$d(x_j,x_k)<\varepsilon_j$, so $x_k$ is a Cauchy sequence if
+$\varepsilon_j\to 0$. The limit $y$ belongs to $N_{x_j,\varepsilon_j}$ for
+every $j$ since $N_{x_j,\varepsilon_j}$ is closed. Hence $y\notin\cup
+F_j$ so the theorem will follow if we show that the sequences
+$x_j,\varepsilon_j$ can be constructed. Suppose that
+$x_1,\varepsilon_1,\dots,x_{j-1},\varepsilon_{j-1}$ have already been
+chosen. By hypothesis the ball $N_{x_{j-1},\varepsilon_{j-1}/2}$ contains
+some point $x_j$ which is not in $F_j$. Since $F_j$ is closed we can
+choose $\varepsilon_j$ so that $F_j\cap N_{x_j,\varepsilon_j}=\emptyset$. If
+$\varepsilon_j<\varepsilon_{j-1}/2$, we have $N_{x_j,\varepsilon_j}\subset
+N_{x_{j-1},\varepsilon_{j-1}}$ by the triangle inequality, and
+$\varepsilon_j<2^{1-j}\varepsilon_1\to 0$. This proves the theorem.
+\end{prf}
+\begin{exa}
+  We give an example with $E=\mathbf{R}$. Let $f$ be a function from
+  $\mathbf{R}$ to $\mathbf{R}$ which is differentiable at every
+  point. The example $f(x)=x^2\sin(x^{-2}),\ x\neq0;\ f(0)=0$; shows
+  that $\varlimsup_{y\to x}|f'(y)|$ need not be finite for every
+  $x$. However, we shall prove that
+  \begin{displaymath}
+    E=\left\{ x\in\mathbf{R};\varlimsup_{y\to x}|f'(y)|<\infty \right\}
+  \end{displaymath}
+is an open dense set (that is, the complement is closed and has no
+interior point). That $E$ is open is obvious. Let $I$ be a closed
+interval in $\mathbf{R}$, not reduced to a point, and set
+\begin{displaymath}
+  F_n=\left\{ x\in I;|f(x)-f(y)|\leq n|x-y|,y\in I \right\}\subset
+  \left\{ x\in I;|f'(x)|\leq n \right\}.
+\end{displaymath}
+Since $f$ is continuous it is clear that $F_n$ is closed, and $\cup
+F_n=I$ since $f'(x)$ exists for every $x$. Hence $F_n$ has an interior
+point for some $n$, so $I\cap E$ is not empty, which means that $E$ is
+dense in $\mathbf{R}$.
+\end{exa}
+\begin{dfn}
+  A subset $A$ of complete metric space is said to be of the
+  \emph{first category} if there exist countably many closed sets
+  $F_1,F_2,\dots$ in $E$ without interior points such that
+  $A\subset\cup_1^{\infty}F_j$. All other sets are said to be of the
+  \emph{second category}.
+\end{dfn}
+The definition implies that any countable union of sets of the first
+category is of the first category, and so is any subset of a set of the
+first category. By Theorem \ref{thm:2.1.1} a set of the first category
+has no interior point, so the complement is dense. One is therefore
+justified in thinking of sets of the first category as quite small
+although they may of course be dense (such as the set of rational
+numbers $\subset\mathbf{R}$).
+
+We shall finally recall the main facts concerning compact spaces. A
+topological space $E$ is called \emph{compact} if it is a Hausdorff
+space and the Borel-Lebesgue lemma is valid, that is, if for every
+family of open subsets $O_{\alpha},\alpha\in A$, with
+$\cup_AO_{\alpha}=E$ it is possible to find a finite subfamily
+$O_{\alpha_1},\dots,O_{\alpha_n}$ with union equal to $E$. Here $A$
+may be any set of indices. An equivalent property is that for closed
+subsets $F_{\alpha}$ of $E$ with $\cap_AF_{\alpha}=\emptyset$ a finite
+number of the sets already have an empty intersection. This follows by
+considering the complements. Negation gives a third equivalent and
+useful statement:
+
+If $F_{\alpha}$ are closed subsets of the compact set $E$ and if any
+finite number of the sets $F_{\alpha}$ have a non-empty intersection,
+then all have a non-empty intersection.
+
+It is obvious that \emph{a closed subset of a compact space is
+  compact}. The converse is contained in the following:
+\begin{thm}\label{thm:2.1.3}
+  (i) Every compact subset of a Hausdorff space is closed. (ii) If
+  $f:E\to F$ is continuous, $E$ is compact and $F$ is Hausdorff, then
+  $F(E)$ is compact. (iii) If in addition $f$ is injective, then $f$
+  is a homeomorphism $E\to f(E)$, that is, the inverse is also
+  continuous. (iv) If $E$ is compact, then every $x\in E$ has a
+  fundamental system of compact neighborhoods.
+\end{thm}
+\begin{prf}
+  (i) Let $K$ be a compact subset of the Hausdorff space $E$ and let
+  $x\in E\setminus K$. For every $y\in K$ we can choose disjoint open
+  sets $O'_y\ni x$ and $O''_y\ni y$. Since $K$ is compact, we can find
+  $y_1,\dots,y_k$ so that $K\subset O''_{y_1}\cup\cdots\cup O''_{y_k}
+  $. Then $O'_{y_1}\cap\cdots\cap O'_{y_k}$ is an open set containing
+  $x$ which does not intersect $K$. Hence $E\setminus K$ is an open
+  set. (ii) If $O_{\alpha}$ are open subsets of $F$ with
+  $f(E)\subset\cup O_{\alpha}$, then $E\subset\cup
+  f^{-1}(O_{\alpha})$, so $E\subset\cup_1^kf^{-1}(O_{\alpha_j})$ for
+  suitable $\alpha_1,\dots,\alpha_k$. This implies that
+  $f(E)\subset\cup O_{\alpha_j}$ so $f(E)$ is compact set since it is
+  clearly Hausdorff. (iii) From (ii) it follows that $f$ maps closed
+  subsets of $E$ to closed subsets of $f(E)$, hence open subsets to
+  open subsets, which means that $f^{-1}$ is continuous. (iv) If $O$
+  is an open neighborhood of $x$ then the proof of (i) applied to
+  $K=E\setminus O$ shows that there are disjoint open sets $O'\ni x$
+  and $O''\supset K$; then $O'\subset N=E\setminus O''\subset O$, and
+  since $N$ is closed, hence compact, the statement is proved.
+\end{prf}
+
+Let $A$ be an arbitrary set and let $E_{\alpha}$ be a compact set for
+every $\alpha\in A$. The infinite product
+\begin{displaymath}
+  E=\prod_{\alpha\in A}E_{\alpha}
+\end{displaymath}
+is defined as the set of all systems $\left\{ x_{\alpha}
+\right\}_{\alpha\in A}$ with $x_{\alpha}\in E_{\alpha}$. Let
+$p_{\alpha}$ be the projection $E\to E_{\alpha}$ on the $\alpha$th
+component. A topology in $E$ is defined by taking as a basis for open
+sets the finite intersections of sets of the form
+$p_{\alpha}^{-1}O_{\alpha}$ where $O_{\alpha}$ is open in
+$E_{\alpha}$; note that this makes the projections $p_{\alpha}$
+continuous.
+\begin{thm}
+  (Tychonov) The inifinite product $E=\prod_{\alpha\in A}E_{\alpha}$
+  is compact if each $E_{\alpha}$ is compact.
+\end{thm}
+\begin{prf}
+  Let $\F$ be a family of closed subsets of $E$ such that finitely
+  many members of $\F$ never have an empty intersection. Using Zorn's
+  lemma we can extend $\F$ to a maximal family $\F'$ having the same
+  property. In particular, finite intersections of sets in $\F'$ are
+  themselves in $\F'$. Since $E_{\alpha}$ is compact we can find
+  $x_{\alpha}\in E_{\alpha}$ so that
+  $x_{\alpha}\in\overline{p_{\alpha}F}$ for every $F\in\F'$, where the
+  bar denotes closure. If $U_{\alpha}$ is a compact neighborhood of
+  $x_{\alpha}$, then it follows that $p_{\alpha}^{-1}U_{\alpha}\in\F'$
+  since $\F'$ is maximal. Hence $x_{\alpha}$ is uniquely
+  determined. Choosing all $U_{\alpha}$ except finitely many equal to
+  $E_{\alpha}$, we obtain
+  \begin{displaymath}
+    \prod U_{\alpha}=\bigcap
+    p_{\alpha}^{-1}U_{\alpha}\in\F',\quad\text{hence } \left( \prod
+      U_{\alpha} \right)\cap F\neq\emptyset \quad \text{if } F\in\F'
+  \end{displaymath}
+  Thus an arbitrary neighborhood of $x=\left\{ x_{\alpha}
+  \right\}_{\alpha\in A}$ intersects $F$, for every $F\in\F'$, and
+  since $F$ is closed this implies that $x\in F$. The proof is complete.
+\end{prf}
+
+%%% Local Variables: 
+%%% mode: LaTeX
+%%% TeX-master: "alfa"
+%%% End: 
